@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Moments</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            /* Coffee-themed gradient */
+            background: linear-gradient(
+                180deg,
+                #2b1d14 0%,
+                #4a2c1d 35%,
+                #6f4e37 70%,
+                #8b5e3c 100%
+            );
+
+            color:white;
+        }
+
+        .container{
+            width:65%;
+            max-width:700px;
+            text-align:center;
+            padding:20px;
+
+            background:rgba(255,255,255,0.08);
+            backdrop-filter:blur(5px);
+
+            border-radius:15px;
+            box-shadow:0 8px 30px rgba(0,0,0,0.4);
+        }
+
+        h1{
+            font-size:42px;
+            margin-bottom:15px;
+            letter-spacing:2px;
+        }
+
+        .subtitle{
+            color:#f3e5d8;
+            margin-bottom:20px;
+            font-style:italic;
+        }
+
+        img{
+            width:100%;
+            max-width:500px;
+            height:400px;
+            object-fit:cover;
+            border-radius:12px;
+            margin:10px 0;
+        }
+
+        p{
+            font-size:17px;
+            line-height:1.5;
+            color:#f5ede6;
+        }
+
+        button{
+            margin-top:20px;
+            padding:10px 25px;
+            border:none;
+            border-radius:25px;
+
+            background:#5c4033;
+            color:white;
+
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#7b523d;
+            transform:translateY(-2px);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Coffee Moments</h1>
+
+        <p class="subtitle">
+            Every great day begins with a cup of coffee
+        </p>
+
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800"
+             alt="Coffee Cup">
+
+        <p id="message">
+            A warm cup of coffee brings comfort and focus.
+            Its rich aroma fills the air, creating a moment
+            of calm before the rush of the day begins.
+        </p>
+
+        <button onclick="showInfo()">
+            Read More
+        </button>
+
+    </div>
+
+    <script>
+
+        function showInfo(){
+
+            alert("Coffee Moments - The perfect companion for every mood");
+
+            document.getElementById("message").innerText =
+            "Coffee is more than just a beverage. It inspires conversations, fuels creativity, and turns ordinary moments into memorable experiences. Whether enjoyed alone or with friends, every sip brings warmth and energy.";
+
+        }
+
+    </script>
+
+</body>
+</html>
