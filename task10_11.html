@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamer Profile Creator</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 50px;
+        }
+
+        h1{
+            color: #00f5d4;
+        }
+
+        .container{
+            background-color: rgba(255,255,255,0.1);
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        input{
+            width: 80%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button{
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #00f5d4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background-color: #00c2a8;
+        }
+
+        #error{
+            color: #ff6b6b;
+            margin-top: 10px;
+        }
+
+        .profile-card{
+            display: none;
+            margin-top: 25px;
+            background-color: #0f3460;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .avatar{
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎮 Gamer Profile Creator</h1>
+
+        <p>Enter your gamer username</p>
+
+        <input type="text" id="username" placeholder="Username">
+
+        <br>
+
+        <button id="createBtn">Create Profile</button>
+
+        <p id="error"></p>
+
+        <div class="profile-card" id="profileCard">
+            <div class="avatar">👾</div>
+            <h2 id="displayName"></h2>
+            <p>Level: 1 Rookie Gamer</p>
+            <p>XP: 100</p>
+            <p>Achievement: First Login 🏆</p>
+        </div>
+    </div>
+
+    <script>
+
+        const button = document.getElementById("createBtn");
+        const usernameInput = document.getElementById("username");
+        const error = document.getElementById("error");
+        const profileCard = document.getElementById("profileCard");
+        const displayName = document.getElementById("displayName");
+
+        // Event Listener
+        button.addEventListener("click", function(){
+
+            let username = usernameInput.value.trim();
+
+            // Validation
+            if(username === ""){
+                error.textContent = "Please enter a username!";
+                profileCard.style.display = "none";
+            }
+            else if(username.length < 8){
+                error.textContent = "Username must contain at least 8 characters!";
+                profileCard.style.display = "none";
+            }
+            else if(!/[0-9]/.test(username)){
+                error.textContent = "Username must contain at least one digit!";
+                profileCard.style.display = "none";
+            }
+            else if(!/[!@#$%^&*(),.?\":{}|<>]/.test(username)){
+                error.textContent = "Username must contain at least one special character!";
+                profileCard.style.display = "none";
+            }
+            else{
+                error.textContent = "";
+                displayName.textContent = username;
+                profileCard.style.display = "block";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
